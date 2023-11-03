@@ -882,6 +882,11 @@ fn build_texture<W: Write>(dest: &mut W, ty: TextureType, dimensions: TextureDim
                     let mut ctxt = self.0.get_context().make_current();
                     self.0.prepare_for_access(&mut ctxt, crate::TextureAccess::Framebuffer);
                 }}
+
+                #[inline]
+                pub fn context(&self) -> &std::rc::Rc<crate::Context> {{
+                    self.0.get_context()
+                }}
             ")).unwrap();
     }
 
